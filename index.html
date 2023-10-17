@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Revision Tracker</title>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <!-- Your CSS and JavaScript files -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+  <script src="auth.js"></script> <!-- Include your Firebase Authentication functions in auth.js -->
+
+</head>
+
+<body>
+  <h1>Welcome to the Revision Tracker</h1>
+  <p>Keep track of your revision topics and stay organized.</p>
+
+  <div id="how-it-works" class="hidden">
+    <h2>How It Works</h2>
+    <p>1. Add a topic you need to revise.</p>
+    <p>2. Check which topics you need to revise today.</p>
+    <p>3. See all your topics and their last revision dates.</p>
+    <p>4. Modify the revision date if you revise a topic.</p>
+  </div>
+
+  <button onclick="toggleHowItWorks()">Show/Hide How It Works</button>
+
+  <div>
+    <h2>Add a Topic</h2>
+    <form id="addTopicForm">
+      <label for="topic">Topic:</label>
+      <input type="text" id="topic" required>
+      <button type="submit" onclick="addTopic(); return false;">Add</button>
+    </form>
+  </div>
+
+  <div>
+    <h2>Topics to Revise Today</h2>
+    <ul id="topicsList"></ul>
+  </div>
+
+  <div>
+    <h2>All Topics</h2>
+    <ul id="allTopicsList"></ul>
+  </div>
+
+  <div>
+    <h2>Modify Revision Date</h2>
+    <form id="modifyDateForm">
+      <label for="modifyTopic">Select Topic:</label>
+      <select id="modifyTopic" required></select>
+      <label for="newDate">New Revision Date:</label>
+      <input type="date" id="newDate" required>
+      <button type="submit" onclick="modifyDate(); return false;">Update</button>
+    </form>
+  </div>
+
+  <button onclick="showAllTopics()">Show All Topics</button>
+
+  <div>
+    <h2>Log Out</h2>
+    <button onclick="logout()">Log Out</button>
+  </div>
+
+  <!-- Sign-in and Sign-up Form (you can place these anywhere on the page) -->
+  <div id="authForms">
+    <form id="signUpForm" onsubmit="return signUpUser();">
+      <h2>Sign-Up</h2>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <form id="signInForm" onsubmit="return signInUser();">
+      <h2>Sign-In</h2>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+</body>
+
+</html>
