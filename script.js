@@ -20,6 +20,30 @@ var currentUserUID; // Variable to store the current user's UID
 // Initialize Firebase Authentication
 var auth = firebase.auth();
 
+// Function to update the welcome message with the user's name
+function updateWelcomeMessage() {
+  const welcomeMessage = document.getElementById("welcomeMessage");
+
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in
+      // Retrieve the user's name from the Firebase user profile
+      const userName = user.displayName;
+
+      // Update the welcome message
+      welcomeMessage.textContent = `Welcome ${userName} to your Revision Tracker`;
+    } else {
+      // User is signed out or not signed in
+      // Use a default welcome message
+      welcomeMessage.textContent = "Welcome to your Revision Tracker";
+    }
+  });
+}
+
+// Call the updateWelcomeMessage function to set the initial welcome message
+updateWelcomeMessage();
+
+
 // Function to add a topic
 function addTopic() {
   var topicInput = document.getElementById("topic");
