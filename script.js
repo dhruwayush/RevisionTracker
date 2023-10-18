@@ -135,6 +135,18 @@ function updateModifyTopicDropdown() {
     });
 }
 
+function logout() {
+  // Sign out the user
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+    window.location.href = "signin.html"; // Redirect to the sign-in page after logging out
+  }).catch(function(error) {
+    // An error occurred during sign-out.
+    console.error(error);
+  });
+}
+
+
 // Function to toggle the "How It Works" section
 function toggleHowItWorks() {
   var howItWorksSection = document.getElementById('how-it-works');
