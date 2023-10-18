@@ -47,3 +47,43 @@ button:hover {
 .hidden {
   display: none;
 }
+
+/* Add this CSS to your style.css file */
+
+/* Style for the All Topics section */
+#allTopicsList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#allTopicsList li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#allTopicsList li:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
+/* Style for the Modify Revision Date form */
+#modifyDateForm {
+  margin-top: 20px;
+}
+
+#modifyDateForm label {
+  font-weight: bold;
+}
+
+#modifyDateForm select,
+#modifyDateForm input[type="date"] {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
