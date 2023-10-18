@@ -6,6 +6,37 @@
   <title>Revision Tracker</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+  <style>
+    /* Add custom styles here */
+    body {
+      background-color: #4CAF50; /* Green background color */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2 {
+      margin: 10px;
+      color: #fff; /* White text color */
+    }
+    #how-it-works, #addTopicForm, ul, #modifyDateForm, #showAllTopicsBtn, div {
+      background-color: #fff; /* White background for sections and buttons */
+      padding: 20px;
+      margin: 10px;
+      border-radius: 5px;
+      color: #000; /* Black text color for content */
+    }
+    button {
+      background-color: #4CAF50; /* Green button background color */
+      color: #fff; /* White text color for buttons */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+  </style>
 </head>
 <body>
   <div class="content">
@@ -52,7 +83,7 @@
       </form>
     </div>
 
-    <button onclick="showAllTopics()">Show All Topics</button>
+    <button id="showAllTopicsBtn" onclick="showAllTopics()">Show All Topics</button>
 
     <div>
       <h2>Log Out</h2>
