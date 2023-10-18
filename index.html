@@ -1,125 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <style>
-    /* Add custom styles here */
-    body {
-      background-color: #f5f5f5;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #4CAF50;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    h1, h2 {
-      margin: 10px;
-    }
-    section {
-      background-color: #ffffff;
-      padding: 20px;
-      margin: 10px;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    footer {
-      background-color: #4CAF50;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      font-size: 18px;
-    }
-    .hidden {
-      display: none;
-    }
-  </style>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Revision Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 </head>
 <body>
-  <header>
+  <div class="content">
     <h1>Welcome to the Revision Tracker</h1>
-    <!-- Add the user's name here after login -->
-    <p id="welcomeMessage" class="hidden">Welcome, <span id="userName"></span> to your Revision Tracker</p>
-  </header>
+    <p>Keep track of your revision topics and stay organized.</p>
 
-  <!-- User Login Form -->
-  <section id="loginForm">
-    <h2>Login</h2>
-    <form id="signInForm">
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
-      <label for="password">Password:</label>
-      <input type="password" id="password" required>
-      <button type="submit" onclick="signInUser(); return false;">Login</button>
-    </form>
-    <p id="loginErrorText" class="hidden"></p>
-  </section>
+    <div id="how-it-works" class="hidden">
+      <h2>How It Works</h2>
+      <p>1. Add a topic you need to revise.</p>
+      <p>2. Check which topics you need to revise today.</p>
+      <p>3. See all your topics and their last revision dates.</p>
+      <p>4. Modify the revision date if you revise a topic.</p>
+    </div>
 
-  <section id="how-it-works" class="hidden">
-    <h2>How It Works</h2>
-    <ol>
-      <li>Add a topic you need to revise.</li>
-      <li>Check which topics you need to revise today.</li>
-      <li>See all your topics and their last revision dates.</li>
-      <li>Modify the revision date if you revise a topic.</li>
-    </ol>
-  </section>
+    <button onclick="toggleHowItWorks()">Show/Hide How It Works</button>
 
-  <section>
-    <h2>Add a Topic</h2>
-    <form id="addTopicForm">
-      <label for="topic">Topic:</label>
-      <input type="text" id="topic" required>
-      <button type="submit" onclick="addTopic(); return false;">Add</button>
-    </form>
-  </section>
+    <div id="main">
+      <h2>Add a Topic</h2>
+      <form id="addTopicForm">
+        <label for="topic">Topic:</label>
+        <input type="text" id="topic" required>
+        <button type="submit" onclick="addTopic(); return false;">Add</button>
+      </form>
+    </div>
 
-  <section>
-    <h2>Topics to Revise Today</h2>
-    <ul id="topicsList"></ul>
-  </section>
+    <div>
+      <h2>Topics to Revise Today</h2>
+      <ul id="topicsList"></ul>
+    </div>
 
-  <section>
-    <h2>All Topics</h2>
-    <ul id="allTopicsList"></ul>
-  </section>
+    <div>
+      <h2>All Topics</h2>
+      <ul id="allTopicsList"></ul>
+    </div>
 
-  <section>
-    <h2>Modify Revision Date</h2>
-    <form id="modifyDateForm">
-      <label for="modifyTopic">Select Topic:</label>
-      <select id="modifyTopic" required></select>
-      <label for="newDate">New Revision Date:</label>
-      <input type="date" id="newDate" required>
-      <button type="submit" onclick="modifyDate(); return false;">Update</button>
-    </form>
-  </section>
+    <div>
+      <h2>Modify Revision Date</h2>
+      <form id="modifyDateForm">
+        <label for="modifyTopic">Select Topic:</label>
+        <select id="modifyTopic" required></select>
+        <label for="newDate">New Revision Date:</label>
+        <input type="date" id="newDate" required>
+        <button type="submit" onclick="modifyDate(); return false;">Update</button>
+      </form>
+    </div>
 
-  <button id="showAllTopicsBtn" onclick="showAllTopics()">Show All Topics</button>
+    <button onclick="showAllTopics()">Show All Topics</button>
 
-  <footer>
-    <button id="logoutBtn" onclick="logout()">Log Out</button>
-    <div class="made-with-love">Made with ❤️ by @dhruwayush</div>
-  </footer>
+    <div>
+      <h2>Log Out</h2>
+      <button onclick="logout()">Log Out</button>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
