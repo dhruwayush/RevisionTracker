@@ -50,12 +50,30 @@
       display: none;
     }
   </style>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="script.js"></script>
   <title>Revision Tracker</title>
 </head>
 <body>
   <header>
     <h1>Welcome to the Revision Tracker</h1>
+    <!-- Add the user's name here after login -->
+    <p id="welcomeMessage" class="hidden">Welcome, <span id="userName"></span> to your Revision Tracker</p>
   </header>
+
+  <!-- User Login Form -->
+  <section id="loginForm">
+    <h2>Login</h2>
+    <form id="signInForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+      <button type="submit" onclick="signInUser(); return false;">Login</button>
+    </form>
+    <p id="loginErrorText" class="hidden"></p>
+  </section>
 
   <section id="how-it-works" class="hidden">
     <h2>How It Works</h2>
@@ -97,9 +115,10 @@
     </form>
   </section>
 
-  <button onclick="showAllTopics()">Show All Topics</button>
+  <button id="showAllTopicsBtn" onclick="showAllTopics()">Show All Topics</button>
 
   <footer>
+    <button id="logoutBtn" onclick="logout()">Log Out</button>
     <div class="made-with-love">Made with ❤️ by @dhruwayush</div>
   </footer>
 </body>
