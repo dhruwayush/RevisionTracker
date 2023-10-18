@@ -7,44 +7,53 @@
   <script src="script.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-  <link rel="stylesheet" type="text/css" href="style.css">
-
+  <style>
+    /* Add custom styles here */
+    .made-with-love {
+      font-family: 'Your Custom Font', sans-serif;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
   <title>Revision Tracker</title>
 </head>
 <body>
-  <h1>Welcome to the Revision Tracker</h1>
-  <p>Keep track of your revision topics and stay organized.</p>
+  <header>
+    <h1>Welcome to the Revision Tracker</h1>
+    <p>Keep track of your revision topics and stay organized.</p>
+    <button onclick="toggleHowItWorks()">Show/Hide How It Works</button>
+  </header>
 
-  <div id="how-it-works" class="hidden">
+  <section id="how-it-works" class="hidden">
     <h2>How It Works</h2>
-    <p>1. Add a topic you need to revise.</p>
-    <p>2. Check which topics you need to revise today.</p>
-    <p>3. See all your topics and their last revision dates.</p>
-    <p>4. Modify the revision date if you revise a topic.</p>
-  </div>
+    <ol>
+      <li>Add a topic you need to revise.</li>
+      <li>Check which topics you need to revise today.</li>
+      <li>See all your topics and their last revision dates.</li>
+      <li>Modify the revision date if you revise a topic.</li>
+    </ol>
+  </section>
 
-  <button onclick="toggleHowItWorks()">Show/Hide How It Works</button>
-
-  <div>
+  <section>
     <h2>Add a Topic</h2>
     <form id="addTopicForm">
       <label for="topic">Topic:</label>
       <input type="text" id="topic" required>
       <button type="submit" onclick="addTopic(); return false;">Add</button>
     </form>
-  </div>
+  </section>
 
-  <div>
+  <section>
     <h2>Topics to Revise Today</h2>
     <ul id="topicsList"></ul>
-  </div>
+  </section>
 
-  <div>
+  <section>
     <h2>All Topics</h2>
     <ul id="allTopicsList"></ul>
-  </div>
+  </section>
 
-  <div>
+  <section>
     <h2>Modify Revision Date</h2>
     <form id="modifyDateForm">
       <label for="modifyTopic">Select Topic:</label>
@@ -53,13 +62,13 @@
       <input type="date" id="newDate" required>
       <button type="submit" onclick="modifyDate(); return false;">Update</button>
     </form>
-  </div>
+  </section>
 
   <button onclick="showAllTopics()">Show All Topics</button>
 
-  <div>
-    <h2>Log Out</h2>
+  <footer>
     <button onclick="logout()">Log Out</button>
-  </div>
+    <div class="made-with-love">Made with ❤️ by @dhruwayush</div>
+  </footer>
 </body>
 </html>
