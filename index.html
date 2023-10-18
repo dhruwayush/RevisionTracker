@@ -5,22 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Revision Tracker</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 </head>
 <body>
-  <div class="sidebar">
-    <h1>Revision Tracker</h1>
-    <ul>
-      <li><a href="#" onclick="toggleHowItWorks()">How It Works</a></li>
-      <li><a href="#" onclick="addTopic()">Add a Topic</a></li>
-      <li><a href="#" onclick="showTopicsToReviseToday()">Topics to Revise Today</a></li>
-      <li><a href="#" onclick="showAllTopics()">All Topics</a></li>
-      <li><a href="#" onclick="modifyDate()">Modify Revision Date</a></li>
-      <li><a href="#" onclick="logout()">Log Out</a></li>
-    </ul>
-    <p>Made with ❤ by @dhruwayush</p>
-  </div>
   <div class="content">
+    <h1>Welcome to the Revision Tracker</h1>
+    <p>Keep track of your revision topics and stay organized.</p>
+
     <div id="how-it-works" class="hidden">
       <h2>How It Works</h2>
       <p>1. Add a topic you need to revise.</p>
@@ -29,9 +19,43 @@
       <p>4. Modify the revision date if you revise a topic.</p>
     </div>
 
+    <button onclick="toggleHowItWorks()">Show/Hide How It Works</button>
+
     <div id="main">
-      <h2>Welcome to the Revision Tracker</h2>
-      <p>Keep track of your revision topics and stay organized.</p>
+      <h2>Add a Topic</h2>
+      <form id="addTopicForm">
+        <label for="topic">Topic:</label>
+        <input type="text" id="topic" required>
+        <button type="submit" onclick="addTopic(); return false;">Add</button>
+      </form>
+    </div>
+
+    <div>
+      <h2>Topics to Revise Today</h2>
+      <ul id="topicsList"></ul>
+    </div>
+
+    <div>
+      <h2>All Topics</h2>
+      <ul id="allTopicsList"></ul>
+    </div>
+
+    <div>
+      <h2>Modify Revision Date</h2>
+      <form id="modifyDateForm">
+        <label for="modifyTopic">Select Topic:</label>
+        <select id="modifyTopic" required></select>
+        <label for="newDate">New Revision Date:</label>
+        <input type="date" id="newDate" required>
+        <button type="submit" onclick="modifyDate(); return false;">Update</button>
+      </form>
+    </div>
+
+    <button onclick="showAllTopics()">Show All Topics</button>
+
+    <div>
+      <h2>Log Out</h2>
+      <button onclick="logout()">Log Out</button>
     </div>
   </div>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
