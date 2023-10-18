@@ -50,7 +50,7 @@
 </head>
 <body>
   <div class="content">
-    <h1>Welcome, <span id="welcomeMessage"></span></h1>
+    <h1><span id="welcomeMessage"></span></h1>
     <p>Keep track of your revision topics and stay organized.</p>
 
     <div id="how-it-works" class="hidden">
@@ -61,7 +61,7 @@
       <p>4. Modify the revision date if you revise a topic.</p>
       <br>
        <p>This program is based on the spaced repetition technique. It will suggest revising topics after certain intervals to help you retain the information effectively.</p>
-      <p>You'll receive revision suggestions after studying a topic for the following intervals:</p>
+      <p>You'll receive revision automatic suggestions after studying a topic for the following intervals:</p>
       <ul>
         <li>1 day</li>
         <li>3 days</li>
@@ -72,7 +72,7 @@
     <button onclick="toggleHowItWorks()">Show/Hide How It Works</button>
 
     <div id="main">
-      <h2>Add a Topic</h2>
+      <h2>Add Today's Topic</h2>
       <form id="addTopicForm">
         <label for="topic">Topic:</label>
         <input type="text" id="topic" required>
