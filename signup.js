@@ -1,4 +1,4 @@
-// Firebase configuration
+// Firebase configuration (same as script.js)
 var firebaseConfig = {
   apiKey: "AIzaSyAm4aDJ-g-UehALCEPvuzqNeLmQfUW4M8Q",
   authDomain: "revisiontracker-dc145.firebaseapp.com",
@@ -11,10 +11,10 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication
+// Initialize Firebase Authentication (same as script.js)
 const auth = firebase.auth();
 
-// Function to sign up a user
+// Function to sign up a user (unchanged)
 function signUpUser() {
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
@@ -29,26 +29,21 @@ function signUpUser() {
       // Sign-up successful
       const user = userCredential.user;
 
-      // Update the user's profile with their name
       user.updateProfile({
         displayName: name,
       }).then(() => {
-        // Profile updated successfully
         window.location.href = "index.html";
       }).catch((profileError) => {
-        // Handle profile update errors
         const errorText = document.getElementById("errorText");
         errorText.textContent = profileError.message;
         errorText.classList.remove("hidden");
       });
     })
     .catch((error) => {
-      // Handle sign-up errors (e.g., display error message)
       const errorText = document.getElementById("errorText");
       errorText.textContent = error.message;
       errorText.classList.remove("hidden");
     });
 
-  // Prevent the form from submitting (this is done automatically by Firebase)
   return false;
 }
