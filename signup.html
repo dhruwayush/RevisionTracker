@@ -4,15 +4,13 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="signup.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text css" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
   <title>Sign-Up</title>
 </head>
 <body>
   <h1>Sign-Up</h1>
   <form id="signUpForm" onsubmit="return signUpUser();">
-    <label for="name">Name:</label>
-    <input type="text" id="name" required><br>
     <label for="email">Email:</label>
     <input type="email" id="email" required><br>
     <label for="password">Password:</label>
@@ -21,6 +19,6 @@
     <button onclick="window.location.href='signin.html'">Sign In</button>
   </form>
   <p id="errorText" class="hidden"></p>
-   <iframe src="footer.html" frameborder="0" scrolling="no" width="100%" height="60"></iframe>
+  <iframe src="footer.html" frameborder="0" scrolling="no" width="100%" height="60"></iframe>
 </body>
 </html>
