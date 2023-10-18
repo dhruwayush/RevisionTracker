@@ -1,89 +1,60 @@
+/* Global Styles */
 body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f7f7f7;
+  background-color: #f5f5f5; /* Light gray background color */
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  color: #333; /* Dark text color */
+  text-align: center;
 }
 
-.content {
-  margin: 20px;
+h1, h2 {
+  margin: 10px;
+  color: #00897B; /* Teal header color */
+}
+
+/* Sections and Buttons */
+section, button, input {
+  background-color: #fff; /* White background for sections, buttons, and input fields */
   padding: 20px;
-  background-color: #fff;
+  margin: 10px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-h2 {
-  font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 16px;
-  margin-bottom: 20px;
 }
 
 button {
-  background-color: #007BFF;
-  color: #fff;
+  background-color: #00897B; /* Teal button background color */
+  color: #fff; /* White text color for buttons */
   border: none;
   padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #005955; /* Darker teal on hover */
 }
 
+/* Input Fields */
+input {
+  padding: 5px;
+  border: 1px solid #ccc; /* Light gray border for input fields */
+  border-radius: 5px;
+  margin: 5px;
+}
+
+/* Centered Alignment */
+.center {
+  text-align: center;
+}
+
+/* Made with Love */
+.made-with-love {
+  font-family: 'Your Custom Font', sans-serif;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Hidden Elements */
 .hidden {
   display: none;
 }
-
-/* Add this CSS to your style.css file */
-
-/* Style for the All Topics section */
-#allTopicsList {
-  list-style-type: none;
-  padding: 0;
-}
-
-#allTopicsList li {
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #f3f3f3;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-#allTopicsList li:hover {
-  background-color: #e6e6e6;
-  cursor: pointer;
-}
-
-/* Style for the Modify Revision Date form */
-#modifyDateForm {
-  margin-top: 20px;
-}
-
-#modifyDateForm label {
-  font-weight: bold;
-}
-
-#modifyDateForm select,
-#modifyDateForm input[type="date"] {
-  width: 100%;
-  padding: 5px;
-  margin: 5px 0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
