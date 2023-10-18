@@ -1,42 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revision Tracker</title>
-  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+  <style>
+    /* Add custom styles here */
+    .made-with-love {
+      font-family: 'Your Custom Font', sans-serif;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+  <title>Revision Tracker</title>
 </head>
 <body>
   <header>
     <h1>Welcome to the Revision Tracker</h1>
     <p>Keep track of your revision topics and stay organized.</p>
-    <p>Welcome to your Revision Tracker, <span id="userDisplayName"></span>!</p>
+    <button onclick="toggleHowItWorks()">Show/Hide How It Works</button>
   </header>
-  <main>
-    <section>
-      <h2>How It Works</h2>
-      <p>1. Add a topic you need to revise.</p>
-      <p>2. Check which topics you need to revise today.</p>
-      <p>3. See all your topics and their last revision dates.</p>
-      <p>4. Modify the revision date if you revise a topic.</p>
-    </section>
-    <section>
-      <h2>Topics to Revise Today</h2>
-      <ul id="topicsToRevise"></ul>
-    </section>
-    <section>
-      <h2>All Topics</h2>
-      <ul id="allTopics"></ul>
-    </section>
-  </main>
+
+  <section id="how-it-works" class="hidden">
+    <h2>How It Works</h2>
+    <ol>
+      <li>Add a topic you need to revise.</li>
+      <li>Check which topics you need to revise today.</li>
+      <li>See all your topics and their last revision dates.</li>
+      <li>Modify the revision date if you revise a topic.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Add a Topic</h2>
+    <form id="addTopicForm">
+      <label for="topic">Topic:</label>
+      <input type="text" id="topic" required>
+      <button type="submit" onclick="addTopic(); return false;">Add</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Topics to Revise Today</h2>
+    <ul id="topicsList"></ul>
+  </section>
+
+  <section>
+    <h2>All Topics</h2>
+    <ul id="allTopicsList"></ul>
+  </section>
+
+  <section>
+    <h2>Modify Revision Date</h2>
+    <form id="modifyDateForm">
+      <label for="modifyTopic">Select Topic:</label>
+      <select id="modifyTopic" required></select>
+      <label for="newDate">New Revision Date:</label>
+      <input type="date" id="newDate" required>
+      <button type="submit" onclick="modifyDate(); return false;">Update</button>
+    </form>
+  </section>
+
+  <button onclick="showAllTopics()">Show All Topics</button>
+
   <footer>
     <button onclick="logout()">Log Out</button>
-    <p>Made with ❤ by @dhruwayush</p>
+    <div class="made-with-love">Made with ❤️ by @dhruwayush</div>
+    <p>Welcome, <span id="userDisplayName">User</span>, to your Revision Tracker</p>
   </footer>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
