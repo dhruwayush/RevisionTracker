@@ -8,32 +8,32 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 </head>
 <body>
-  <div class="sidebar">
-    <h1>Revision Tracker</h1>
-    <ul>
-      <!-- Add other menu items as needed -->
-      <li><a href="#" onclick="toggleHowItWorks()">How It Works</a></li>
-      <li><a href="#" onclick="addTopic()">Add a Topic</a></li>
-      <li><a href="#" onclick="showTopicsToReviseToday()">Topics to Revise Today</a></li>
-      <li><a href="#" onclick="showAllTopics()">All Topics</a></li>
-      <li><a href="#" onclick="modifyDate()">Modify Revision Date</a></li>
-      <li><a href="#" onclick="logout()">Log Out</a></li>
-    </ul>
-    <p>Made with ❤ by @dhruwayush</p>
-  </div>
-  <div class="content">
-    <div id="how-it-works" class="hidden">
+  <header>
+    <h1>Welcome to the Revision Tracker</h1>
+    <p>Keep track of your revision topics and stay organized.</p>
+    <p>Welcome to your Revision Tracker, <span id="userDisplayName"></span>!</p>
+  </header>
+  <main>
+    <section>
       <h2>How It Works</h2>
       <p>1. Add a topic you need to revise.</p>
       <p>2. Check which topics you need to revise today.</p>
       <p>3. See all your topics and their last revision dates.</p>
       <p>4. Modify the revision date if you revise a topic.</p>
-    </div>
-    <div id="main">
-      <h2 id="welcomeMessage">Welcome to Revision Tracker</h2>
-      <p>Keep track of your revision topics and stay organized.</p>
-    </div>
-  </div>
+    </section>
+    <section>
+      <h2>Topics to Revise Today</h2>
+      <ul id="topicsToRevise"></ul>
+    </section>
+    <section>
+      <h2>All Topics</h2>
+      <ul id="allTopics"></ul>
+    </section>
+  </main>
+  <footer>
+    <button onclick="logout()">Log Out</button>
+    <p>Made with ❤ by @dhruwayush</p>
+  </footer>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
